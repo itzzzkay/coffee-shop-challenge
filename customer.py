@@ -1,3 +1,5 @@
+from order import Order
+
 class Customer:
 
     all_customers = []
@@ -20,3 +22,10 @@ class Customer:
         
         else:
             return self._name
+
+    def cust_orders(self):
+        return[order for order in Order.all_orders if order.customer == self]
+
+    def cust_coffee(self):
+        return list(set(order.coffee for order in self.cust_orders()))
+    
