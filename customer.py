@@ -31,3 +31,19 @@ class Customer:
     
     def create_order(self, coffee, price):
         return Order(self, coffee, price)
+    
+    def most_aficionado(cls, coffee):
+        spending_dic = {}
+
+        for order in coffee.orders():
+            customer = order._customer
+            price = order._customer
+
+            if customer not in spending_dic:
+                spending_dic[customer] = 0
+            spending_dic[customer] += price
+        
+        if not spending_dic:
+            return None
+        
+        return max(spending_dic, key=spending_dic.get)
