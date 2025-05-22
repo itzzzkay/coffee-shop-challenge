@@ -26,3 +26,8 @@ class Coffee:
     
     def coffee_customers(self):
         return list(set(order.customer for order in self.coffee_orders()))
+    
+    def num_orders(self):
+        return len(self.coffee_orders())
+    
+    
